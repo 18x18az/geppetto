@@ -9,6 +9,7 @@ jobs:
       - uses: usimd/pi-gen-action@v1
         id: build
         with:
+          stage-list: stage0 stage1 stage2
           compression: zip
           compression-level: 6
           disable-first-boot-user-rename: 1
@@ -18,7 +19,6 @@ jobs:
           hostname: display
           image-name: display
           password: '1234'
-          pi-gen-dir: pi-gen
           pi-gen-repository: RPi-Distro/pi-gen
           pi-gen-version: arm64
           release: bullseye
@@ -28,4 +28,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: image
-          path: ${{ steps.build.outputs.image }}
+          path: ${{ steps.build.outputs.image-path }}
