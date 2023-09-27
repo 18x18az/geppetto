@@ -1,0 +1,31 @@
+name: Create Release
+  on:
+    push
+jobs:
+  raspi:
+    name: Build Pi Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: usimd/pi-gen-action@v1
+        id: build
+        with:
+          compression: zip
+          compression-level: 6
+          disable-first-boot-user-rename: 1
+          enable-ssh: 1
+          export-last-stage-only: true
+          github-token: ${{ github.token }}
+          hostname: display
+          image-name: display
+          password: '1234'
+          pi-gen-dir: pi-gen
+          pi-gen-repository: RPi-Distro/pi-gen
+          pi-gen-version: arm64
+          release: bullseye
+          use-qcow2: 1
+          username: operator
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: image
+          path: ${{ steps.build.outputs.image }}
