@@ -23,7 +23,7 @@ jobs:
           pi-gen-version: arm64
           release: bullseye
           use-qcow2: 1
-          username: operator
+          username: op
         
       - uses: actions/upload-artifact@v3
         with:
