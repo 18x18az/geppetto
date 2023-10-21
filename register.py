@@ -1,5 +1,5 @@
 import requests
 
-def register(server, uuid):
-    url = 'http://' + server + '/api/displays/' + uuid + '/register'
-    r = requests.post(url)
+def register(server, serverPort, uuid):
+    url = 'http://' + server + ':' + str(serverPort) + '/api/displays/' + uuid + '/register'
+    requests.post(url)

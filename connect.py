@@ -20,24 +20,30 @@ def attempt_connection():
     respSock.settimeout(1)
 
     address = None
+    serverPort = None
+    webPort = None
 
     try:
         # Receive the response
         data, addr = respSock.recvfrom(1024)
         address = addr[0]
+        # Decode binary string reponse
+        decodedData = data.decode('utf-8').split(',')
+        serverPort = int(decodedData[0])
+        webPort = int(decodedData[1])
     except socket.timeout:
         pass
 
     # Close the socket
     respSock.close()
     
-    return address
+    return address, serverPort, webPort
 
 
 def get_server():
     print('Connecting to maestro')
     while True:
-        addr = attempt_connection()
+        addr, serverPort, webPort = attempt_connection()
         if addr is not None:
             print('Connected to maestro at ' + addr)
-            return addr
+            return addr, serverPort, webPort
