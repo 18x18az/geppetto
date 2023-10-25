@@ -20,7 +20,6 @@ def writeMhs(value):
         dev.ctrl_transfer(SET_REQUEST, mhsReq, wVal, 0, [])
 
 def writeGpio(value):
-        print(value)
         wIndex = value << 8 | 0x00ff
         dev.ctrl_transfer(SET_REQUEST, bReq, wVal, wIndex, [])
 
@@ -42,5 +41,3 @@ def buildGpio(ledOn, enabled, driver):
 
         writeGpio(value)
         writeMhs(mhsValue)
-
-buildGpio(True, False, True)

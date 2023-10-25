@@ -2,6 +2,7 @@ from getUuid import get_uuid
 from connect import get_server
 from register import register
 import subprocess
+from fieldCon import doTheThing
 
 server, serverPort, browserPort = get_server()
 
@@ -45,8 +46,4 @@ subprocess.Popen(['chromium-browser', urlToOpen,
 
 register(server, serverPort, ident)
 
-print(server)
-print(ident)
-
-while True:
-    pass
+doTheThing()
