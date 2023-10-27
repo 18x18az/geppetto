@@ -21,8 +21,13 @@ isEnabled = False
 
 currentTimer = None
 
+alreadySubscribed = False
+
 def on_connect(client, userdata, flags, rc):
     print('Connected to MQTT server')
+    global currentField
+    currentField = None
+    buildGpio(True, False, True)
     client.subscribe(metaTopic)
 
 def handleMeta(payload):
@@ -87,3 +92,6 @@ client.connect(server, 1883, 60)
 def doTheThing():
     global client
     client.loop_forever()
+
+if __name__=='__main__':
+   doTheThing()
