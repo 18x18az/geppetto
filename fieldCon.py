@@ -27,7 +27,10 @@ def on_connect(client, userdata, flags, rc):
     print('Connected to MQTT server')
     global currentField
     currentField = None
+    print('setting to disabled by default')
     buildGpio(True, False, True)
+    print('subscribing to the meta topic')
+    print(metaTopic)
     client.subscribe(metaTopic)
 
 def handleMeta(payload):
@@ -94,4 +97,5 @@ def doTheThing():
     client.loop_forever()
 
 if __name__=='__main__':
+   print('doing the thing')
    doTheThing()

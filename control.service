@@ -1,0 +1,11 @@
+[Unit]
+Description=Field control as a service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 -u /home/admin/geppetto/fieldCon.py
+
+[Install]
+WantedBy=multi-user.target
