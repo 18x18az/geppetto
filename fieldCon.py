@@ -44,38 +44,13 @@ def handleMeta(payload):
         currentField = fieldId
 
 def handleFieldStatus(payload):
-    global isDriver, currentTimer
-    state = payload['state']
-    if currentTimer:
-        currentTimer.cancel()
-
-    if state == 'PAUSED':
-        print('Match paused')
-        buildGpio(True, False, isDriver)
-        buildGpio(True, False, True)
-        isDriver = True
-    elif state == 'AUTO' or state == 'PROG_SKILLS':
-        print('Starting auto')
-        buildGpio(True, False, False)
-        buildGpio(True, True, False)
-        delay = 60
-        if state == "AUTO":
-            delay = 15
-        currentTimer = Timer(delay, lambda: buildGpio(True, False, True))
-        isDriver = False
-    elif state == 'DRIVER' or state == 'DRIVER_SKILLS':
-        print('Starting teleop')
-        buildGpio(True, False, True)
-        buildGpio(True, True, True)
-        delay = 60
-        if state == "DRIVER":
-            delay = 105
-        currentTimer = Timer(delay, lambda: buildGpio(True, False, False))
-        isDriver = True
-    else:
-        print('Disabling')
-        buildGpio(True, False, isDriver)
-        buildGpio(True, False, False)
+    mode = payload['mode']
+    endTime = payload['endTime']
+    print(mode)
+    print(endTime)
+    isDriver = mode == 'DRIVER'
+    isEnabled = endTime != None
+    buildGpio(True, isEnabled, isDriver)
 
 def on_message(client, userdata, msg):
     topic = msg.topic
