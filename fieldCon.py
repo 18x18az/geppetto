@@ -39,8 +39,8 @@ def handleMeta(payload):
     if currentField != fieldId:
         print(f"Assigned to field {fieldId}")
         if currentField is not None:
-            client.unsubscribe(f"fieldStatus/{currentField}")
-        client.subscribe(f"fieldStatus/{fieldId}")
+            client.unsubscribe(f"fieldControl/{currentField}")
+        client.subscribe(f"fieldControl/{fieldId}")
         currentField = fieldId
 
 def handleFieldStatus(payload):
