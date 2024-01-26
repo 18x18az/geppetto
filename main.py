@@ -6,46 +6,47 @@ import subprocess
 
 server, serverPort, browserPort = get_server()
 
-ident = get_uuid()
+#ident = get_uuid()
+ident = '1234567890'
 
-## Run command chromium-browser http://{server}:{browserPort}/display/field/{ident}
-urlToOpen = 'http://' + server + ':' + str(browserPort) + '/display/field/' + ident
-#urlToOpen = 'http://google.com'
-## Start x server
-# ##   --window-size=1920,1080 \
-#   --window-position=0,0 \
-#   --start-fullscreen \
-#   --kiosk \
-#   --incognito \
-#   --noerrdialogs \
-#   --disable-translate \
-#   --no-first-run \
-#   --fast \
-#   --fast-start \
-#   --disable-infobars \
-#   --disable-features=TranslateUI \
-#   --disk-cache-dir=/dev/null \
-#   --overscroll-history-navigation=0 \
-#   --disable-pinch
+# ## Run command chromium-browser http://{server}:{browserPort}/display/field/{ident}
+# urlToOpen = 'http://' + server + ':' + str(browserPort) + '/display/field/' + ident
+# #urlToOpen = 'http://google.com'
+# ## Start x server
+# # ##   --window-size=1920,1080 \
+# #   --window-position=0,0 \
+# #   --start-fullscreen \
+# #   --kiosk \
+# #   --incognito \
+# #   --noerrdialogs \
+# #   --disable-translate \
+# #   --no-first-run \
+# #   --fast \
+# #   --fast-start \
+# #   --disable-infobars \
+# #   --disable-features=TranslateUI \
+# #   --disk-cache-dir=/dev/null \
+# #   --overscroll-history-navigation=0 \
+# #   --disable-pinch
 
 register(server, serverPort, ident)
 
-subprocess.call(['chromium-browser', urlToOpen,
-                  '--window-size=1920,1080',
-                  '--window-position=0,0',
-                  '--start-fullscreen',
-                  '--kiosk',
-                  '--incognito',
-                  '--noerrdialogs',
-                  '--disable-translate',
-                  '--no-first-run',
-                  '--fast',
-                  '--fast-start',
-                  '--disable-infobars',
-                  '--disable-features=TranslateUI',
-                  '--disk-cache-dir=/dev/null',
-                  '--overscroll-history-navigation=0',
-                  '--disable-pinch']
-                  )
+# subprocess.call(['chromium-browser', urlToOpen,
+#                   '--window-size=1920,1080',
+#                   '--window-position=0,0',
+#                   '--start-fullscreen',
+#                   '--kiosk',
+#                   '--incognito',
+#                   '--noerrdialogs',
+#                   '--disable-translate',
+#                   '--no-first-run',
+#                   '--fast',
+#                   '--fast-start',
+#                   '--disable-infobars',
+#                   '--disable-features=TranslateUI',
+#                   '--disk-cache-dir=/dev/null',
+#                   '--overscroll-history-navigation=0',
+#                   '--disable-pinch']
+#                   )
 
 
