@@ -1,7 +1,6 @@
 from getUuid import get_uuid
 from connect import get_server
 from register import getFieldInfo
-import subprocess
 
 # ## Run command chromium-browser http://{server}:{browserPort}/display/field/{ident}
 # urlToOpen = 'http://' + server + ':' + str(browserPort) + '/display/field/' + ident

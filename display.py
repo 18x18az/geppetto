@@ -1,4 +1,5 @@
 from getUuid import get_uuid
+import subprocess
 from connect import get_server
 def display(): 
     server, serverPort, browserPort = get_server()
