@@ -5,7 +5,7 @@ After=multi-user.target
 [Service]
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 -u /home/admin/geppetto/fieldCon.py
+ExecStart=/usr/bin/python3 -u /home/admin/geppetto/main.py
 
 [Install]
 WantedBy=multi-user.target

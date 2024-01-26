@@ -121,7 +121,7 @@ async def pollDeviceConfig(server, serverPort, uuid):
             if fieldControl is not None:
                 await process_field_control(fieldControl['mode'], fieldControl['endTime'])
 
-def register(server, serverPort, uuid):
+def subscribe(server, serverPort, uuid):
     while True:
         try:
             loop = asyncio.new_event_loop()

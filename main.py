@@ -1,13 +1,12 @@
 from getUuid import get_uuid
 from connect import get_server
-from register import register
+from register import subscribe
 import subprocess
 #from fieldCon import doTheThing
 
 server, serverPort, browserPort = get_server()
 
-#ident = get_uuid()
-ident = '1234567890'
+ident = get_uuid()
 
 # ## Run command chromium-browser http://{server}:{browserPort}/display/field/{ident}
 # urlToOpen = 'http://' + server + ':' + str(browserPort) + '/display/field/' + ident
@@ -29,7 +28,7 @@ ident = '1234567890'
 # #   --overscroll-history-navigation=0 \
 # #   --disable-pinch
 
-register(server, serverPort, ident)
+subscribe(server, serverPort, ident)
 
 # subprocess.call(['chromium-browser', urlToOpen,
 #                   '--window-size=1920,1080',

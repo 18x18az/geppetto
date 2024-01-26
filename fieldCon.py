@@ -1,9 +1,4 @@
-from getUuid import get_uuid
-from connect import get_server
-import paho.mqtt.client as mqtt
-import json
 from controller import buildGpio
-from threading import Timer
 
 buildGpio(True, False, True)
 
