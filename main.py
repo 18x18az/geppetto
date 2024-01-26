@@ -57,6 +57,7 @@ if __name__ == "__main__":
                   '--no-first-run',
                   '--fast',
                   '--fast-start',
+                  '--no-sandbox',
                   '--disable-infobars',
                   '--disable-features=TranslateUI',
                   '--disk-cache-dir=/dev/null',
