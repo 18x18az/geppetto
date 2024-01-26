@@ -129,4 +129,5 @@ def subscribe(server, serverPort, uuid):
             loop.run_until_complete(pollDeviceConfig(server, serverPort, uuid))
             loop.close()
         except aiohttp.client_exceptions.ClientConnectorError:
+            loop.close()
             continue
