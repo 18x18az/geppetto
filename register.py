@@ -5,28 +5,26 @@ import websockets
 import asyncio
 import aiohttp
 from datetime import datetime, timezone
+from controller import buildGpio
 
 end_time = None
 mode = None
 pendingTimer = None
-
-def disable():
-    print('disabling robots')
-    if pendingTimer is not None:
-        pendingTimer.cancel()
 
 async def process_field_control(set_mode, set_end_time):
     global end_time, mode
 
     if set_mode != mode:
         mode = set_mode
+        buildGpio(True, end_time is not None, mode == 'DRIVER')
         print(f"Mode: {mode}")
 
     if set_end_time != end_time:
         end_time = set_end_time
         if end_time is None:
-            disable()
+            buildGpio(True, False, mode == 'DRIVER')
         else:
+            buildGpio(True, True, mode == 'DRIVER')
             global pendingTimer
             if pendingTimer is not None:
                 pendingTimer.cancel()
