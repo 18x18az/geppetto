@@ -45,7 +45,6 @@ import subprocess
 if __name__ == "__main__":
     server, serverPort, browserPort = get_server()
     ident = get_uuid()
-    getFieldInfo(server, serverPort, ident)
     urlToOpen = 'http://' + server + ':' + str(browserPort) + '/display/field/' + ident
     subprocess.call(['chromium-browser', urlToOpen,
                   '--window-size=1920,1080',
@@ -64,3 +63,5 @@ if __name__ == "__main__":
                   '--overscroll-history-navigation=0',
                   '--disable-pinch']
                   )
+    
+    getFieldInfo(server, serverPort, ident)
