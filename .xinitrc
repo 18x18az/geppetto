@@ -5,6 +5,6 @@ xset s noblank
 
 while true; do
 	unclutter &
-	cd /home/admin/geppetto && /usr/bin/python main.py
+	cd /home/admin/geppetto && /usr/bin/python display.py
 	sleep 5
 done
