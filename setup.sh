@@ -4,4 +4,5 @@ sudo apt install --no-install-recommends xserver-xorg-video-all xserver-xorg-inp
 sudo cp ./control.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable --now control
+sudo systemctl enable --now cockpit.socket
 sudo reboot
