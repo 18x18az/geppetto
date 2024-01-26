@@ -21,5 +21,6 @@ def display():
                   '--disk-cache-dir=/dev/null',
                   '--overscroll-history-navigation=0',
                   '--disable-pinch']
+    )
 
 display()
