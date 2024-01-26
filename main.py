@@ -63,6 +63,6 @@ if __name__ == "__main__":
     #               '--disk-cache-dir=/dev/null',
     #               '--overscroll-history-navigation=0',
     #               '--disable-pinch']
-                  )
+    #              )
     
     getFieldInfo(server, serverPort, ident)
