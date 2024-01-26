@@ -121,7 +121,7 @@ async def pollDeviceConfig(server, serverPort, uuid):
             if fieldControl is not None:
                 await process_field_control(fieldControl['mode'], fieldControl['endTime'])
 
-def subscribe(server, serverPort, uuid):
+def getFieldInfo(server, serverPort, uuid):
     while True:
         try:
             loop = asyncio.new_event_loop()
@@ -129,5 +129,4 @@ def subscribe(server, serverPort, uuid):
             loop.run_until_complete(pollDeviceConfig(server, serverPort, uuid))
             loop.close()
         except aiohttp.client_exceptions.ClientConnectorError:
-            loop.close()
             continue
