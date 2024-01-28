@@ -6,8 +6,8 @@ sudo cp ./control.service /etc/systemd/system
 sudo systemctl daemon-reload
 sudo systemctl enable --now control
 sudo systemctl enable --now cockpit.socket
-sudo pip3 install "gql[all]"
-sudo pip3 install pyusb
+pip3 install "gql[all]" --break-system-packages
+pip3 install pyusb --break-system-packages
 sudo cp ./1-field.rules /etc/udev/rules.d
 sudo groupadd dialout
 sudo usermod -aG dialout admin
